@@ -1,5 +1,5 @@
 import { ICommand } from 'WOKCommands' ;
-import { CommandInteraction , Client , MessageActionRow , MessageSelectMenu, Interaction } from "discord.js";
+import { CommandInteraction , Client , MessageActionRow , MessageSelectMenu, Interaction  } from "discord.js";
 import { DiscordTogether } from 'discord-together';
 
 export default {
@@ -14,8 +14,9 @@ export default {
 
             if(!interaction.isSelectMenu())return 
 
-            const attachment = new Attachment('../archives/dragon.pdf');
-            interaction.reply(attachment);
+            interaction.channel?.send({ 
+                files : ['../archives/dragon.pdf'],
+            })
             
         })
     },
